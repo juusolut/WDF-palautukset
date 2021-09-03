@@ -87,13 +87,18 @@ nav a:hover {
   font-weight: bold;
 }
 
+.headerButton:hover {
+  background-color: black !important;
+  color: white !important;
+}
+
 /*               */
 
 #canvas {
 /*   background-color: white; */
   display: grid;
   grid-template-areas: 
-    "header header header"
+    "banner banner banner"
     "main main sidebar";
   grid-auto-columns: 1fr 1fr 20rem;
   gap: 1.5rem;
@@ -112,7 +117,7 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   width: 100%;
-  grid-area: header;
+  grid-area: banner;
 }
 
 /*          */
@@ -140,23 +145,26 @@ nav a:hover {
 
 main {
   grid-area: main;
-  background-color: white;
-  box-shadow: var(--shadow);
-  padding: 1.5rem;
-  border-top: .2rem solid grey;
 }
 
 article {
+  padding: 1.0rem;
+  background-color: white;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
 }
 
 article h1 {
   font-size: 1.8rem;
-  padding: .5rem 0rem;
+  margin-bottom: .8rem;
 }
 
 article h2 {
-  padding-top: 2rem;
-  padding-left: .5rem;
+  margin-top: 1rem;
+}
+
+article h2 .topic {
+  color: royalblue;
 }
 
 article img {
@@ -167,17 +175,21 @@ article img {
 
 aside {
   grid-area: sidebar;
-  background-color: white;
-  box-shadow: var(--shadow);
-  padding: 1.5rem;
 }
 
-aside h3 {
+.sectionContainer {
+  background-color: red;
+  padding: 1.5rem;
+  background-color: white;
+  box-shadow: var(--shadow);
+}
+
+.sectionContainer h3 {
   margin-bottom: 1rem;
   font-size: 1.4rem;
 }
 
-aside section {
+section {
   display: flex;
   flex-direction: row;
   padding: .8rem 0rem;
