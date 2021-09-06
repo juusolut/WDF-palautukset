@@ -1,18 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Product.module.css';
 
 const Prodcut = ({product}) => {
-
+    
     const starCssProperties = {
         '--percent': (product.rating / 5) * 100 + '%'
     }
 
     let stars = <div className={styles.stars} style={starCssProperties}></div>
-    
+
  
     return (
         <div className={styles.product}>
-            <img src='https://m.media-amazon.com/images/I/61CqYq+xwNL._AC_UL320_.jpg' alt='product image'></img>
+            <img src='https://m.media-amazon.com/images/I/81XvEK3g4KL._AC_UL320_.jpg' alt='product'></img>
             <div className={styles.productTexts}>
                 <span className={styles.name}>{product.name}</span>
                 <div className={styles.rating}>

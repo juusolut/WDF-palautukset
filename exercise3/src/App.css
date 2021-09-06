@@ -19,13 +19,3 @@ html {
   padding: 1rem;
   margin-bottom: 20rem;
 }
-
-h1 {
-  font-size: 4.6rem;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  height: 20rem;
-
-}
