@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Filters.module.css';
 
-const Filters = ({filter, handleChange, handleSearchChange, search}) => {
+const Filters = ({filter, handleDropdownChange, handleSearchChange, search}) => {
 
     let options = [
         {value: 'ascending', label: 'Price ascending'},
@@ -16,10 +16,10 @@ const Filters = ({filter, handleChange, handleSearchChange, search}) => {
             <div>
             </div>
             <div>
-               <input value={search} onChange={handleSearchChange}></input>
+               <input value={search} onChange={handleSearchChange} placeholder='Search'></input>
             </div>
             <div>
-                <select value={filter} onChange={handleChange}>
+                <select value={filter} onChange={handleDropdownChange}>
                     {options.map(option => 
                         <option key={option.value} value={option.value}>
                             {option.label}

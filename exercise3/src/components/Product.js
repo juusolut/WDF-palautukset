@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styles from './Product.module.css';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const Prodcut = ({product}) => {
     
@@ -12,7 +13,9 @@ const Prodcut = ({product}) => {
  
     return (
         <div className={styles.product}>
-            <img src='https://m.media-amazon.com/images/I/81XvEK3g4KL._AC_UL320_.jpg' alt='product'></img>
+            <div className={styles.image}>
+                <img src={product.image} alt='product'></img>
+            </div>
             <div className={styles.productTexts}>
                 <span className={styles.name}>{product.name}</span>
                 <div className={styles.rating}>
@@ -23,8 +26,9 @@ const Prodcut = ({product}) => {
                     <span className={styles.price}>
                         <b>{(Math.round(product.price * 100) / 100).toFixed(2)} €</b>
                     </span>
-                    <button>
-                        Add to Cart
+                    <button className={styles.buy}>
+                        <span>Add to cart</span>
+                        <ShoppingCartIcon></ShoppingCartIcon>
                     </button>
                 </div>
             </div>

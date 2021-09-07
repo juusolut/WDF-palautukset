@@ -8,14 +8,19 @@ html {
   background-color: rgb(235, 235, 235);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 .productsContainer {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   max-width: 120rem;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-  grid-gap: 1rem;
+/*   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); */
+/*   grid-gap: 1rem; */
   margin: auto;
-  padding: 1rem;
   margin-bottom: 20rem;
+/*   background-color: rgb(224, 224, 224); */
+/*   border-radius: .6rem; */
 }
+
