@@ -40,3 +40,76 @@
     padding: 1rem;
     font-size: 1.8rem;
 }
+
+.viewToggle {
+    position: relative;
+    display: flex;
+    width: 7rem;
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+.viewToggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    border: .1rem solid darkgrey;
+    border-radius: .6rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .4rem;
+}
+
+.slider::before {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 50%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.20);
+    transition: all 100ms ease-in-out;
+    border-right: .1rem solid darkgray;
+}
+
+.viewToggle input:checked + .slider {
+}
+  
+.viewToggle input:focus + .slider {
+}
+
+.viewToggle input:checked + .slider:before {
+    transform: translateX(100%);
+    border-right: 0rem solid darkgray;
+    border-left: .1rem solid darkgray;
+}
+
+.slider .icon {
+    z-index: 1;
+    color: black;
+    font-size: 2.4rem;
+    transition: all 300ms ease-in-out;
+}
+
+.slider .icon:last-child {
+    color: rgba(0, 0, 0, 0.26);
+}
+
+.viewToggle input:checked + .slider .icon:last-child {
+    color: black;
+}
+
+.viewToggle input:checked + .slider .icon:first-child {
+    color: rgba(0, 0, 0, 0.26);
+}

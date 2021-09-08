@@ -7,8 +7,7 @@
     flex-direction: column;
 /*     border-radius: .6rem; */
     background-color: white;
-    height: 40rem;
-    width: 25rem;
+/*     width: 25rem; */
 /*     box-shadow: 0 0 .5rem .1rem rgba(0, 0, 0, 0.05); */
 /*     border: .1rem solid rgba(0, 0, 0, 0.2); */
     overflow: hidden;
@@ -40,7 +39,11 @@
 
 .image {
     height: 20rem;
+    width: 25rem;
     padding: 1rem 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 
 img {
@@ -54,6 +57,7 @@ img {
     width: 100%;
     height: 100%;
     padding: .5rem;
+    justify-content: space-between;
 }
 
 .name {
@@ -62,7 +66,6 @@ img {
     overflow: hidden;
     height: 4.3rem;
     position: relative;
-/*     background-color: red; */
 }
 
 .name::after {
@@ -80,8 +83,7 @@ img {
     display: flex;
     align-items: center;
     font-size: 1.4rem;
-    flex: 1;
-/*     background-color: green; */
+    height: 6rem;
 }
 
 .stars {
@@ -116,13 +118,24 @@ img {
 .priceBuyContainer {
     display: flex;
     flex-direction: row;
-    font-size: 2.4rem;
+    font-size: 1.1rem;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
+    height: 5.5rem;
 }
+
+.stockAndPrice {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    color: grey;
+}
+
 
 .price {
     color: darkslateblue;
+    font-size: 2.4rem;
 }
 
 .buy {
