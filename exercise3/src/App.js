@@ -22,7 +22,8 @@ function App() {
       let copy = JSON.parse(JSON.stringify(obj));
       copy.sort((a, b) => a.price - b.price)
       setProducts(copy)
-    }, 0)
+    }, 1000)
+
   }, [])
 
   const handleDropdownChange = (event) => {
@@ -101,7 +102,22 @@ function App() {
           }
 
         </div>
-        : <div className={styles.noResults}>No results 😕</div>
+        : products.length === 0 ?
+          <div className={styles.noResults}>
+            <div className={styles.loading}>
+              <div className={styles.dot}></div>
+              <div className={styles.dot}></div>
+              <div className={styles.dot}></div>
+              <div className={styles.dot}></div>
+              <div className={styles.dot}></div>
+              <div className={styles.dot}></div>
+              <div className={styles.dot}></div>
+              <div className={styles.dot}></div>
+              <div className={styles.dot}></div>
+              <div className={styles.dot}></div>
+            </div>
+          </div>
+          : <div className={styles.noResults}>No results 😕</div>
 
       }
 

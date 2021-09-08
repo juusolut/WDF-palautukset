@@ -33,3 +33,80 @@ html {
   height: 30rem;
 }
 
+.loading {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 5rem;
+  position: relative;
+  animation: loading 500ms infinite steps(10, jump-start); 
+}
+
+@keyframes loading {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+.dot {
+  height: .7rem;
+  width: .7rem;
+  background-color: black;
+  border-radius: 1rem;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+.dot:nth-child(1) {
+  transform: translate(0, 0);
+}
+
+.dot:nth-child(2) {
+  transform: translate(1.2rem, .4rem);
+  background-color: rgb(31, 31, 31);
+}
+
+.dot:nth-child(3) {
+  transform: translate(1.9rem, 1.4rem);
+  background-color: rgb(62, 62, 62);
+}
+
+.dot:nth-child(4) {
+  transform: translate(1.9rem, 2.7rem);
+  background-color: rgb(93, 93, 93);
+}
+
+.dot:nth-child(5) {
+  transform: translate(1.1rem, 3.6rem);
+  background-color: rgb(124, 124, 124);
+}
+
+.dot:nth-child(6) {
+  transform: translate(0, 4rem);
+  background-color: rgb(155, 155, 155);
+}
+
+.dot:nth-child(7) {
+  transform: translate(-1.1rem, 3.6rem);
+  background-color: rgb(186, 186, 186);
+}
+
+.dot:nth-child(8) {
+  transform: translate(-1.9rem, 2.7rem);
+  background-color: rgb(217, 217, 217);
+}
+
+.dot:nth-child(9) {
+  transform: translate(-1.9rem, 1.4rem);
+  background-color: rgb(240, 240, 240);
+}
+
+.dot:nth-child(10) {
+  transform: translate(-1.3rem, .5rem);
+  background-color: white;
+}
+
+

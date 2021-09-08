@@ -14,6 +14,7 @@
    height: 3rem; 
    border: .1rem solid darkgray;
    border-radius: .6rem;
+   padding-left: 1rem;
 }
 
 .filters > * {
@@ -37,8 +38,8 @@
     flex: 1;
     border: 1px solid darkgray;
     border-radius: .6rem;
-    padding: 1rem;
     font-size: 1.8rem;
+    text-align: center;
 }
 
 .viewToggle {
