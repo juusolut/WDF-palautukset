@@ -5,6 +5,10 @@ import Header from './components/Header'
 import ProductService from './services/ProductService'
 import Filters from './components/Filters';
 import { useSpring, animated, useTransition } from 'react-spring';
+import EventSeat from '@material-ui/icons/EventSeat';
+import HeadsetMic from '@material-ui/icons/HeadsetMic';
+import LaptopChromebookIcon from '@material-ui/icons/LaptopChromebook';
+import TabletAndroidIcon from '@material-ui/icons/TabletAndroid';
 
 function App() {
   const [products, setProducts] = useState([])
@@ -115,10 +119,18 @@ function App() {
           <div className={styles.noResults}>
             
             <div className={styles.loading}>
-              <div className={styles.dot}></div>
-              <div className={styles.dot}></div>
-              <div className={styles.dot}></div>
-              <div className={styles.dot}></div>
+              <div className={styles.dot}>
+                <EventSeat></EventSeat>
+              </div>
+              <div className={styles.dot}>
+                <HeadsetMic></HeadsetMic>
+              </div>
+              <div className={styles.dot}>
+                <LaptopChromebookIcon></LaptopChromebookIcon>
+              </div>
+              <div className={styles.dot}>
+                <TabletAndroidIcon></TabletAndroidIcon>
+              </div>
             </div>
           </div>
           : <div className={styles.noResults}>No results 😕</div>

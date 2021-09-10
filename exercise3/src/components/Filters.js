@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Filters.module.css';
 import AppsIcon from '@material-ui/icons/ViewComfy';
 import ViewListIcon from '@material-ui/icons/ViewList';
+import SearchIcon from '@material-ui/icons/Search';
 
 const Filters = ({ filter, handleDropdownChange, handleSearchChange, search, handleLayoutChange, listLayout }) => {
 
@@ -20,7 +21,9 @@ const Filters = ({ filter, handleDropdownChange, handleSearchChange, search, han
                     value={search}
                     onChange={handleSearchChange}
                     placeholder='Search'
-                ></input>
+                >
+                </input>
+                <SearchIcon className={styles.searchIcon}></SearchIcon>
             </div>
             {/* <div className={styles.middle}>
             </div> */}

@@ -58,7 +58,7 @@ html {
 
 .loading {
   height: 5rem;
-  width: 10rem;
+  width: 20rem;
   position: relative;
   display: flex;
   background-color: none;
@@ -70,37 +70,28 @@ html {
 @keyframes dotScale {
   0% {
     transform: scale(1);
+    background-color: rgb(235, 235, 235);
   }
   25% {
-    transform: scale(2);
+    transform: scale(1.7);
+    background-color: rgb(66, 66, 66);
   }
-  50% {
+  60% {
+    background-color: rgb(235, 235, 235);
     transform: scale(1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes dotWave {
-  0% {
-    transform: translateY(0);
-  }
-  
-  50% {
-    transform: translateY(-2rem);
-  }
-  100% {
-    transform: translateY(0);
   }
 }
 
 .dot {
-  height: 1rem;
-  width: 1rem;
-  background-color: grey;
-  border-radius: 11rem;
-  animation: dotScale 1.0s ease-in-out infinite;
+  height: 3rem;
+  width: 3rem;
+  background-color: rgb(235, 235, 235);
+  border-radius: 10rem;
+  animation: dotScale 1.8s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .dot:nth-child(1) {
@@ -109,15 +100,15 @@ html {
 }
 
 .dot:nth-child(2) {
-  animation-delay: 100ms;
+  animation-delay: 150ms;
 }
 
 .dot:nth-child(3) {
-  animation-delay: 200ms;
+  animation-delay: 300ms;
 }
 
 .dot:nth-child(4) {
-  animation-delay: 300ms;
+  animation-delay: 450ms;
 }
 
 

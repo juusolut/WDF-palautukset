@@ -33,6 +33,7 @@
     max-width: 40rem;
     min-width: 11rem;
     align-items: center;
+    position: relative;
 }
 
 .middle {
@@ -46,9 +47,6 @@
     justify-content: flex-end;
 }
 
-.filters div {
-}
-
 .filters input {
     background-color: white;
     width: 100%;
@@ -59,6 +57,13 @@
     font-size: 1.8rem;
     box-shadow: var(--shadow);
 
+}
+
+.searchIcon {
+    color: darkgray;
+    position: absolute;
+    font-size: 2.6rem;
+    right: 2rem;
 }
 
 .viewToggle {
