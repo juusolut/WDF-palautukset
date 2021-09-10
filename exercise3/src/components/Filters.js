@@ -8,25 +8,26 @@ const Filters = ({ filter, handleDropdownChange, handleSearchChange, search, han
     let options = [
         { value: 'ascending', label: 'Price ascending' },
         { value: 'descending', label: 'Price descending' },
+        { value: 'best', label: 'Best rating' }
     ]
 
     console.log('Layout: ' + listLayout)
 
     return (
         <div className={styles.filters}>
-            <div>
-            </div>
-            <div>
-                <input 
-                    value={search} 
-                    onChange={handleSearchChange} 
+            <div className={styles.left}>
+                <input
+                    value={search}
+                    onChange={handleSearchChange}
                     placeholder='Search'
                 ></input>
             </div>
-            <div>
+            {/* <div className={styles.middle}>
+            </div> */}
+            <div className={styles.right}>
                 <div>
                     <label className={styles.viewToggle}>
-                        <input 
+                        <input
                             type='checkbox'
                             checked={listLayout}
                             onChange={handleLayoutChange}
@@ -38,14 +39,14 @@ const Filters = ({ filter, handleDropdownChange, handleSearchChange, search, han
                     </label>
                 </div>
                 <div>
-                <select value={filter} onChange={handleDropdownChange}>
-                    {options.map(option =>
-                        <option key={option.value} value={option.value}>
-                            {option.label}
-                        </option>
-                    )}
-                </select>
-            </div>
+                    <select value={filter} onChange={handleDropdownChange}>
+                        {options.map(option =>
+                            <option key={option.value} value={option.value}>
+                                {option.label}
+                            </option>
+                        )}
+                    </select>
+                </div>
             </div>
 
         </div>

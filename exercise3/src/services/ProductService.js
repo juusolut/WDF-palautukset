@@ -1,7 +1,7 @@
 const products = [
   {
     id: 1,
-    name: 'Motherboard',
+    name: 'MSI B450 Tomahawk',
     rating: 3.5,
     reviews: 80,
     price: 108.99,
@@ -10,7 +10,7 @@ const products = [
   },
   {
     id: 2,
-    name: 'CPU',
+    name: 'Intel Core i9-9900K Desktop Processor 8 Cores up to 5.0GHz Unlocked LGA1151 300 Series 95W (BX806849900K)',
     rating: 5,
     reviews: 51,
     price: 235.00,
@@ -19,7 +19,7 @@ const products = [
   },
   {
     id: 3,
-    name: 'Amazing HDD this is the fastest HDD in the world trust me',
+    name: 'Western Digital 1TB WD Blue PC Hard Drive HDD - 7200 RPM, SATA 6 Gb/s, 64 MB Cache, 3.5" - WD10EZEX',
     rating: 1.5,
     reviews: 2,
     price: 59.99,
@@ -28,7 +28,7 @@ const products = [
   },
   {
     id: 4,
-    name: 'SSD',
+    name: 'Samsung Evo 1Tb SSD',
     rating: null,
     reviews: 0,
     price: 82.55,
@@ -55,7 +55,7 @@ const products = [
   },
   {
     id: 7,
-    name: 'Mousepad',
+    name: 'Mousepad Best In the World Durable and High Speed Fabric For Best Performance',
     rating: 3.8,
     reviews: 24,
     price: 9.98,

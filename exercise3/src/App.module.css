@@ -1,3 +1,15 @@
+:root {
+  --shadow: 
+  0 0.7px 16.1px rgba(0, 0, 0, 0.015),
+  0 1.5px 21.7px rgba(0, 0, 0, 0.021),
+  0 2.5px 25.5px rgba(0, 0, 0, 0.024),
+  0 3.8px 29.4px rgba(0, 0, 0, 0.027),
+  0 6.1px 35.6px rgba(0, 0, 0, 0.03),
+  0 13px 55px rgba(0, 0, 0, 0.04)
+;
+
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,6 +34,16 @@ html {
   padding: 1rem;
 /*   background-color: rgb(224, 224, 224); */
 /*   border-radius: .6rem; */
+  animation: fadeIn .5s ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .noResults {
@@ -31,82 +53,72 @@ html {
   justify-content: center;
   align-items: center;
   height: 30rem;
+  flex-direction: column;
 }
 
 .loading {
   height: 5rem;
-  width: 5rem;
-  border-radius: 5rem;
+  width: 10rem;
   position: relative;
-  animation: loading 500ms infinite steps(10, jump-start); 
+  display: flex;
+  background-color: none;
+  align-items: center;
+  justify-content: space-around;
+  
 }
 
-@keyframes loading {
-  from {
-    transform: rotateZ(0deg);
+@keyframes dotScale {
+  0% {
+    transform: scale(1);
   }
-  to {
-    transform: rotateZ(360deg);
+  25% {
+    transform: scale(2);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
+
+@keyframes dotWave {
+  0% {
+    transform: translateY(0);
+  }
+  
+  50% {
+    transform: translateY(-2rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .dot {
-  height: .7rem;
-  width: .7rem;
-  background-color: black;
-  border-radius: 1rem;
-  position: absolute;
-  margin: auto;
-  left: 0;
-  right: 0;
+  height: 1rem;
+  width: 1rem;
+  background-color: grey;
+  border-radius: 11rem;
+  animation: dotScale 1.0s ease-in-out infinite;
 }
 
 .dot:nth-child(1) {
-  transform: translate(0, 0);
+  animation-delay: 0ms;
+
 }
 
 .dot:nth-child(2) {
-  transform: translate(1.2rem, .4rem);
-  background-color: rgb(31, 31, 31);
+  animation-delay: 100ms;
 }
 
 .dot:nth-child(3) {
-  transform: translate(1.9rem, 1.4rem);
-  background-color: rgb(62, 62, 62);
+  animation-delay: 200ms;
 }
 
 .dot:nth-child(4) {
-  transform: translate(1.9rem, 2.7rem);
-  background-color: rgb(93, 93, 93);
+  animation-delay: 300ms;
 }
 
-.dot:nth-child(5) {
-  transform: translate(1.1rem, 3.6rem);
-  background-color: rgb(124, 124, 124);
-}
-
-.dot:nth-child(6) {
-  transform: translate(0, 4rem);
-  background-color: rgb(155, 155, 155);
-}
-
-.dot:nth-child(7) {
-  transform: translate(-1.1rem, 3.6rem);
-  background-color: rgb(186, 186, 186);
-}
-
-.dot:nth-child(8) {
-  transform: translate(-1.9rem, 2.7rem);
-  background-color: rgb(217, 217, 217);
-}
-
-.dot:nth-child(9) {
-  transform: translate(-1.9rem, 1.4rem);
-  background-color: rgb(240, 240, 240);
-}
-
-.dot:nth-child(10) {
-  transform: translate(-1.3rem, .5rem);
-  background-color: white;
-}
 
 

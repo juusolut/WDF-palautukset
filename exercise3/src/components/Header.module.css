@@ -7,6 +7,7 @@ header {
     height: 20rem;
     background-color: white;
     border-bottom: .1rem solid lightgray;
+    box-shadow: var(--shadow);
   }
   
 header span {

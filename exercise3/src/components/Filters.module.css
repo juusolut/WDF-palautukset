@@ -1,45 +1,64 @@
+
+
 .filters {
     max-width: 120rem;
     margin: auto;
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     margin-top: 1rem;
     flex-direction: row;
     justify-content: space-between;
+    height: 8rem;
+    align-items: center;
 }
 
 .filters select {
    width: 15rem;
    height: 3rem; 
-   border: .1rem solid darkgray;
+/*    border: .1rem solid darkgray; */
+   border: none;
    border-radius: .6rem;
    padding-left: 1rem;
+   box-shadow: var(--shadow);
 }
 
-.filters > * {
+.filters > div {
+    display: flex;
+    height: 100%;
+}
+
+.left {
+    flex: 1;
+    max-width: 40rem;
+    min-width: 11rem;
+    align-items: center;
+}
+
+.middle {
+    
+}
+
+.right {
     flex: 1;
     display: flex;
-    justify-content: center;
-    padding: 0 .5rem;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-.filters div:first-child {
-    justify-content: start;
-}
-
-.filters div:last-child {
-    justify-content: end;
+.filters div {
 }
 
 .filters input {
     background-color: white;
-    height: 5rem;
-    flex: 1;
-    border: 1px solid darkgray;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    border: 0px solid darkgray;
     border-radius: .6rem;
     font-size: 1.8rem;
-    text-align: center;
+    box-shadow: var(--shadow);
+
 }
 
 .viewToggle {
@@ -64,7 +83,8 @@
     right: 0;
     bottom: 0;
     background-color: white;
-    border: .1rem solid darkgrey;
+/*     border: .1rem solid darkgrey; */
+    box-shadow: var(--shadow);
     border-radius: .6rem;
     overflow: hidden;
     display: flex;
@@ -81,19 +101,20 @@
     left: 0;
     background-color: rgba(0, 0, 0, 0.20);
     transition: all 100ms ease-in-out;
-    border-right: .1rem solid darkgray;
+    border-right: .0rem solid darkgray;
 }
 
 .viewToggle input:checked + .slider {
 }
   
 .viewToggle input:focus + .slider {
+    outline: 2px solid black;
 }
 
 .viewToggle input:checked + .slider:before {
     transform: translateX(100%);
     border-right: 0rem solid darkgray;
-    border-left: .1rem solid darkgray;
+    border-left: .0rem solid darkgray;
 }
 
 .slider .icon {
@@ -113,4 +134,18 @@
 
 .viewToggle input:checked + .slider .icon:first-child {
     color: rgba(0, 0, 0, 0.26);
+}
+
+@media only screen and (max-width: 500px) {
+    .right {
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    .viewToggle {
+        margin-right: 0rem;
+    }
+    .filters {
+        height: 10rem;
+    }
 }

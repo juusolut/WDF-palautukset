@@ -22,7 +22,7 @@ function App() {
       let copy = JSON.parse(JSON.stringify(obj));
       copy.sort((a, b) => a.price - b.price)
       setProducts(copy)
-    }, 1000)
+    }, 2000)
 
   }, [])
 
@@ -41,6 +41,15 @@ function App() {
     if (event.target.value === 'ascending') {
       let obj = JSON.parse(JSON.stringify(products));
       obj.sort((a, b) => b.price - a.price)
+      //console.log(products)
+      //console.log(obj)
+      setProducts(obj)
+    }
+
+    if (event.target.value === 'best') {
+      console.log('best')
+      let obj = JSON.parse(JSON.stringify(products));
+      obj.sort((a, b) => b.rating - a.rating)
       //console.log(products)
       //console.log(obj)
       setProducts(obj)
@@ -104,13 +113,8 @@ function App() {
         </div>
         : products.length === 0 ?
           <div className={styles.noResults}>
+            
             <div className={styles.loading}>
-              <div className={styles.dot}></div>
-              <div className={styles.dot}></div>
-              <div className={styles.dot}></div>
-              <div className={styles.dot}></div>
-              <div className={styles.dot}></div>
-              <div className={styles.dot}></div>
               <div className={styles.dot}></div>
               <div className={styles.dot}></div>
               <div className={styles.dot}></div>

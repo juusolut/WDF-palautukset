@@ -15,16 +15,13 @@ const Prodcut = ({ product, isRow }) => {
         console.log(product.stock)
     }
 
-    let productInStyle = inStock ?
-        {
-            opacity: 1,
-        } :
-        {
-            opacity: .5,
-            filter: 'grayscale(50%)',
-        }
+    const maxLength = 45
 
-    console.log(productInStyle)
+    const trimmedName = product.name.length > maxLength ? product.name.substring(0, maxLength - 3) + '...' : product.name
+
+    console.log(trimmedName)
+
+    const productInStyle = {}
     productInStyle.flexDirection =  isRow ? 'row' : 'column'
 
     return (
@@ -33,7 +30,7 @@ const Prodcut = ({ product, isRow }) => {
                 <img src={product.image} alt='product'></img>
             </div>
             <div className={styles.productTexts}>
-                <span className={styles.name}>{product.name}</span>
+                <span className={styles.name}>{trimmedName}</span>
                 <div className={styles.rating}>
                     {product.rating === null ? 'No rating yet 🤷‍♂️ ' : stars}
                     <span>({product.reviews})</span>
@@ -45,8 +42,8 @@ const Prodcut = ({ product, isRow }) => {
                             <b>{(Math.round(product.price * 100) / 100).toFixed(2)} €</b>
                         </span>
                     </div>
-                    <button className={styles.buy}>
-                        <span>Add to cart</span>
+                    <button className={styles.buy} style={inStock ? {} : {backgroundColor: 'grey'}}>
+                        <span>{inStock ? 'Add to cart' : 'No stock' }</span>
                         <ShoppingCartIcon></ShoppingCartIcon>
                     </button>
                 </div>
