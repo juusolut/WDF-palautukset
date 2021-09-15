@@ -120,16 +120,16 @@ function App() {
             
             <div className={styles.loading}>
               <div className={styles.dot}>
-                <EventSeat></EventSeat>
+                <EventSeat fontSize='medium'></EventSeat>
               </div>
               <div className={styles.dot}>
-                <HeadsetMic></HeadsetMic>
+                <HeadsetMic fontSize='medium'></HeadsetMic>
               </div>
               <div className={styles.dot}>
-                <LaptopChromebookIcon></LaptopChromebookIcon>
+                <LaptopChromebookIcon fontSize='medium'></LaptopChromebookIcon>
               </div>
               <div className={styles.dot}>
-                <TabletAndroidIcon></TabletAndroidIcon>
+                <TabletAndroidIcon fontSize='medium'></TabletAndroidIcon>
               </div>
             </div>
           </div>

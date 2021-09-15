@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "name": "MSI B450 Tomahawk",
+        "manufacturer": "Manu Company",
+        "category": "Product category",
+        "description": "Product description",
+        "price": 108.99,
+        "image": "motherboard.png",
+        "rating": 3.5,
+        "reviews": 80,
+        "stock": 0
+    },
+    {
+        "id": 2,
+        "name": "Intel Core i9-9900K Desktop Processor 8 Cores up to 5.0GHz Unlocked LGA1151 300 Series 95W (BX806849900K)",
+        "manufacturer": "Manu Company",
+        "category": "Product category",
+        "description": "Product description",
+        "price": 235,
+        "image": "cpu.png",
+        "rating": 5,
+        "reviews": 51,
+        "stock": 2
+    },
+    {
+        "id": 3,
+        "name": "Western Digital 1TB WD Blue PC Hard Drive HDD - 7200 RPM, SATA 6 Gb/s, 64 MB Cache, 3.5\" - WD10EZEX",
+        "manufacturer": "Manu Company",
+        "category": "Product category",
+        "description": "Product description",
+        "price": 59.99,
+        "image": "hdd.png",
+        "rating": 1.5,
+        "reviews": 2,
+        "stock": 999
+    },
+    {
+        "id": 4,
+        "name": "Samsung Evo 1Tb SSD",
+        "manufacturer": "Manu Company",
+        "category": "Product category",
+        "description": "Product description",
+        "price": 82.55,
+        "image": "ssd.png",
+        "rating": null,
+        "reviews": 0,
+        "stock": 101
+    },
+    {
+        "id": 5,
+        "name": "Mechanical Keyboard",
+        "manufacturer": "Manu Company",
+        "category": "Product category",
+        "description": "Product description",
+        "price": 165,
+        "image": "keyboard.png",
+        "rating": 4.5,
+        "reviews": 8,
+        "stock": 22
+    },
+    {
+        "id": 6,
+        "name": "Headset",
+        "manufacturer": "Manu Company",
+        "category": "Product category",
+        "description": "Product description",
+        "price": 24.5,
+        "image": "headset.png",
+        "rating": 2.3,
+        "reviews": 241,
+        "stock": 69
+    },
+    {
+        "id": 7,
+        "name": "Mousepad Best In the World Durable and High Speed Fabric For Best Performance",
+        "manufacturer": "Manu Company",
+        "category": "Product category",
+        "description": "Product description",
+        "price": 9.98,
+        "image": "mousepad.png",
+        "rating": 3.8,
+        "reviews": 24,
+        "stock": 1100
+    },
+    {
+        "id": 8,
+        "name": "PC Case",
+        "manufacturer": "Manu Company",
+        "category": "Product category",
+        "description": "Product description",
+        "price": 35.25,
+        "image": "case.png",
+        "rating": 4,
+        "reviews": 2,
+        "stock": 5
+    }
+]

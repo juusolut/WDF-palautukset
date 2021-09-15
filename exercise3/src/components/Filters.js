@@ -23,7 +23,7 @@ const Filters = ({ filter, handleDropdownChange, handleSearchChange, search, han
                     placeholder='Search'
                 >
                 </input>
-                <SearchIcon className={styles.searchIcon}></SearchIcon>
+                <SearchIcon className={styles.searchIcon} fontSize='large'></SearchIcon>
             </div>
             {/* <div className={styles.middle}>
             </div> */}

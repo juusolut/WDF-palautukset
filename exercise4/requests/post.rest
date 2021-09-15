@@ -1,0 +1,12 @@
+POST http://localhost:3001/products/create-new HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Product title",
+    "manufacturer": "Manu Company",
+    "category": "Product category",
+    "description": "Product description",
+    "price": "0.00",
+    "image": ""
+}
+
