@@ -1,17 +1,27 @@
 const express = require('express')
 const cors = require('cors')
+const nanoid = require('nanoid')
 const products = require('./products.json')
+const users = require('./users.json')
+const invoices = require('./invoices.json')
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
 
-let products2 = [...products]
+let productsCopy = [...products]
+let usersCopy = [...users]
+let invoicesCopy = [...invoices]
 
 /* get all products */
 app.get('/products', (req, res) => {
-    res.json(products2)
+    res.json(productsCopy)
+})
+
+/* get all invoices */
+app.get('/invoices', (req, res) => {
+    res.json(invoicesCopy)
 })
 
 /* create new product (name, manufacturer, category, description, price - bonus image) */
@@ -20,7 +30,7 @@ app.post('/products/create-new', (req, res) => {
     console.log(body)
 
     const newProduct = {
-        id: products2.length + 1,
+        id: nanoid.nanoid(),
         name: body.name,
         manufacturer: body.manufacturer,
         category: body.category,
@@ -33,15 +43,58 @@ app.post('/products/create-new', (req, res) => {
     }
     console.log(JSON.stringify(newProduct))
 
-    products2.push(newProduct)
+    productsCopy.push(newProduct)
     res.json(body)
 })
 
+/* Create user (basic information name, address etc.) */
+app.post('/register', (req, res) => {
+    const body = req.body
+    console.log(body)
+
+    const newUser = {
+        id: nanoid.nanoid,
+        name: body.name,
+        streetAddress: body.streetAddress,
+        postcode: body.postcode,
+        city: body.city,
+        password: body.password,
+        email: body.email
+    }
+    console.log(JSON.stringify(newUser))
+
+    usersCopy.push(newUser)
+    console.log(usersCopy)
+    res.json(body)
+})
+
+/* Purchase products for a user 
+-> create invoice with information of all the 
+bought products + total sum */
+app.post('/create-invoice', (req, res) => {
+    const body = req.body
+
+    let newInvoice = {
+        id: nanoid.nanoid(),
+        products: [
+        ]
+    }
+    for (let i = 0; i < body.length; i++) {
+        newInvoice.products.push(body[i])
+    }
+
+    invoicesCopy.push(newInvoice)
+
+    console.log(invoicesCopy)
+    res.json(body)
+})
+
+
 /* get single product */
 app.get('/products/:id', (req, res) => {
-    const id = Number(req.params.id)
+    const id = req.params.id
     console.log(typeof id)
-    const item = products2.filter(product => product.id === id)
+    const item = productsCopy.filter(product => product.id === id)
     console.log(item)
     res.json(item)
 })
@@ -51,23 +104,23 @@ app.put('/products/:id', (req, res) => {
     const id = Number(req.params.id)
     const body = req.body
 
-    const index = products2.findIndex(product => product.id === id)
+    const index = productsCopy.findIndex(product => product.id === id)
     console.log(index)
 
     const modifiedProduct = {
-        id: products2[index].id,
-        name: body.name || products2[index].name,
-        manufacturer: body.manufacturer || products2[index].manufacturer,
-        category: body.category || products2[index].category,
-        description: body.description || products2[index].description,
-        price: body.price || products2[index].price,
-        image: body.image || products2[index].image,
-        rating: products2[index].rating,
-        reviews: products2[index].reviews,
-        stock: products2[index].stock
+        id: productsCopy[index].id,
+        name: body.name || productsCopy[index].name,
+        manufacturer: body.manufacturer || productsCopy[index].manufacturer,
+        category: body.category || productsCopy[index].category,
+        description: body.description || productsCopy[index].description,
+        price: body.price || productsCopy[index].price,
+        image: body.image || productsCopy[index].image,
+        rating: productsCopy[index].rating,
+        reviews: productsCopy[index].reviews,
+        stock: productsCopy[index].stock
     }
 
-    products2[index] = modifiedProduct
+    productsCopy[index] = modifiedProduct
 
     res.status(200).end()
 })

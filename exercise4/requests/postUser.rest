@@ -1,0 +1,12 @@
+POST http://localhost:3001/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "New Personsson",
+    "streetAddress": "Examplestreet 2",
+    "postcode": "00001",
+    "city": "Town",
+    "password": "1234",
+    "email": "newpersonsson@mail.com"
+}
+

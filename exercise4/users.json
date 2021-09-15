@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Example Person",
+        "streetAddress": "Examplestreet 1",
+        "postcode": "00000",
+        "city": "City",
+        "password": "passwd",
+        "email": "exampleperson@mail.com"
+    }
+]

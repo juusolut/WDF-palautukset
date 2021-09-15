@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "Y1i6G_5hdZZ9eSikqtcAn",
         "name": "MSI B450 Tomahawk",
         "manufacturer": "Manu Company",
         "category": "Product category",
@@ -12,7 +12,7 @@
         "stock": 0
     },
     {
-        "id": 2,
+        "id": "ylbiDQ1b3hrKOYHPNKhRg",
         "name": "Intel Core i9-9900K Desktop Processor 8 Cores up to 5.0GHz Unlocked LGA1151 300 Series 95W (BX806849900K)",
         "manufacturer": "Manu Company",
         "category": "Product category",
@@ -24,7 +24,7 @@
         "stock": 2
     },
     {
-        "id": 3,
+        "id": "e8JCeDKQeJxljc7ubEu4g",
         "name": "Western Digital 1TB WD Blue PC Hard Drive HDD - 7200 RPM, SATA 6 Gb/s, 64 MB Cache, 3.5\" - WD10EZEX",
         "manufacturer": "Manu Company",
         "category": "Product category",
@@ -36,7 +36,7 @@
         "stock": 999
     },
     {
-        "id": 4,
+        "id": "ogjEppcSmOsb4rrShOUIb",
         "name": "Samsung Evo 1Tb SSD",
         "manufacturer": "Manu Company",
         "category": "Product category",
@@ -48,7 +48,7 @@
         "stock": 101
     },
     {
-        "id": 5,
+        "id": "fECyeFrUZ8w9nQ4FSmq_p",
         "name": "Mechanical Keyboard",
         "manufacturer": "Manu Company",
         "category": "Product category",
@@ -60,7 +60,7 @@
         "stock": 22
     },
     {
-        "id": 6,
+        "id": "JUypGrWoPZAavOj7dt2RU",
         "name": "Headset",
         "manufacturer": "Manu Company",
         "category": "Product category",
@@ -72,7 +72,7 @@
         "stock": 69
     },
     {
-        "id": 7,
+        "id": "Qi1JArFhcSexZ_SMb5x00",
         "name": "Mousepad Best In the World Durable and High Speed Fabric For Best Performance",
         "manufacturer": "Manu Company",
         "category": "Product category",
@@ -84,7 +84,7 @@
         "stock": 1100
     },
     {
-        "id": 8,
+        "id": "GutrfU8OhYJDH7EvcUIca",
         "name": "PC Case",
         "manufacturer": "Manu Company",
         "category": "Product category",
