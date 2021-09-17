@@ -1,1 +1,15 @@
-[]
+[
+    {
+        "id": "PDQK-V8M5G4DMGrwiw9kF",
+        "boughtItems": [
+            {
+                "productId": "Y1i6G_5hdZZ9eSikqtcAn",
+                "count": 1
+            },
+            {
+                "productId": "e8JCeDKQeJxljc7ubEu4g",
+                "count": 2
+            }
+        ]
+    }
+]

@@ -1,14 +1,17 @@
-POST http://localhost:3001/create-invoice HTTP/1.1
+POST http://localhost:3001/invoices/create-invoice HTTP/1.1
 content-type: application/json
 
-[
-    {
-        "productId": "Y1i6G_5hdZZ9eSikqtcAn",
-        "count": 1
-    },
-    {
-        "productId": "e8JCeDKQeJxljc7ubEu4g",
-        "count": 2
-    }
-]
+{
+    "userId": "aifo3920fj23f",
+    "boughtItems": [
+        {
+            "productId": "Y1i6G_5hdZZ9eSikqtcAn",
+            "count": 1
+        },
+        {
+            "productId": "e8JCeDKQeJxljc7ubEu4g",
+            "count": 2
+        }
+    ]
+}
 

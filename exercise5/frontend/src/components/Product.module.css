@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+/*     border-radius: .6rem; */
+    background-color: white;
+/*     width: 25rem; */
+/*     box-shadow: 0 0 .5rem .1rem rgba(0, 0, 0, 0.05); */
+/*     border: .1rem solid rgba(0, 0, 0, 0.2); */
+    padding: 2rem;
+    align-items: center;
+/*     animation: test 300ms ease-in forwards;
+    opacity: 0; */
+    outline: .1rem solid rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.product:hover::after  {
+    opacity: 1;
+}
+
+.product::after {
+    z-index: 1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-shadow: var(--shadow);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 200ms ease-out, transform 100ms ease-in-out;
+}
+
+  
+@keyframes test {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.image {
+    height: 20rem;
+    width: 25rem;
+    padding: 1rem 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    height: 100%;
+}
+
+.productTexts {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: .5rem;
+    justify-content: space-between;
+}
+
+.name {
+    font-size: 1.8rem;
+    width: 100%;
+    height: 4.3rem;
+    position: relative;
+/*     background-color: red; */
+}
+
+/* .name::after {
+    position: absolute;
+    content: '...';
+    color: black;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to right, transparent, white 50%);
+    height: 50%;
+    width: 4rem;
+    background-color: white;
+} */
+
+.rating {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    height: 6rem;
+}
+
+.stars {
+    --percent: 0%;
+    font-size: 1.3rem;
+    display: flex;
+    position: relative;
+    letter-spacing: .2rem;
+    margin-bottom: .4rem;
+}
+
+.stars::before {
+    z-index: 1;
+    /* content: '★★★★★'; */
+    content: '⬜⬜⬜⬜⬜';
+    background: linear-gradient(to right, orange var(--percent), darkgrey var(--percent));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stars::after {
+    position: absolute;
+    content: '⬜⬜⬜⬜⬜';
+    color: transparent;
+    text-shadow: .0rem .1rem 0rem rgba(0, 0, 0, 0.5);
+}
+
+
+.rating span {
+    margin-left: .5rem;
+}
+
+.priceBuyContainer {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.1rem;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 5.5rem;
+}
+
+.stockAndPrice {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    color: grey;
+}
+
+
+.price {
+    color: darkslateblue;
+    font-size: 2.4rem;
+}
+
+.buy {
+    padding: 0 1rem;
+    height: 3.5rem;
+    background-color: darkslateblue;
+    border-radius: .3rem;
+    border: none;
+    box-shadow: 0 0 1rem .1rem rgba(0, 0, 0, 0.2);
+    font-size: 1.4rem;
+    color: white;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.buy span {
+    margin-left: 1rem;
+}

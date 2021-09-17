@@ -14,14 +14,95 @@ let productsCopy = [...products]
 let usersCopy = [...users]
 let invoicesCopy = [...invoices]
 
-/* get all products */
+const requestLogger = (req, res, next) => {
+    console.log('Method:', req.method)
+    console.log('Path:  ', req.path)
+    console.log('Body:  ', req.body)
+    console.log('---')
+    next()
+}
+
+app.use(requestLogger)
+
+/* get products */
 app.get('/products', (req, res) => {
-    res.json(productsCopy)
+    console.log(req.query.name)
+    console.log(req.query.manufacturer)
+    console.log(req.query.category)
+
+    let productsToShow = [...productsCopy]
+
+    if (req.query.name) {
+        productsToShow = productsToShow.filter(product => {
+            console.log('COMPARING', product.name.toLowerCase(), 'AND', req.query.name)
+            console.log(String(product.name.toLowerCase()).includes(String(req.query.name)))
+            return String(product.name.toLowerCase()).includes(String(req.query.name))
+        })
+    }
+
+    if (req.query.manufacturer) {
+        productsToShow = productsToShow.filter(product => {
+            console.log('COMPARING', product.manufacturer.toLowerCase(), 'AND', req.query.manufacturer)
+            return String(product.manufacturer.toLowerCase()) === (String(req.query.manufacturer))
+        })
+    }
+
+    if (req.query.category) {
+        productsToShow = productsToShow.filter(product => {
+            console.log('COMPARING', product.category.toLowerCase(), 'AND', req.query.category)
+            return String(product.category.toLowerCase()) === (String(req.query.category))
+        })
+    }
+
+
+    res.json(productsToShow)
+})
+
+/* get single product */
+app.get('/products/:id', (req, res) => {
+    const id = req.params.id
+    console.log(typeof id)
+    const item = productsCopy.filter(product => product.id === id)
+    console.log(item)
+    res.json(item)
+})
+
+/* get all users */
+app.get('/users', (req, res) => {
+    res.json(usersCopy)
 })
 
 /* get all invoices */
 app.get('/invoices', (req, res) => {
     res.json(invoicesCopy)
+})
+
+/* Get invoices of a user */
+app.get('/users/:userId/invoices', (req, res) => {
+    const id = req.params.userId
+    const user = usersCopy.find(user => user.id === id)
+    const userInvoices = user.invoices
+    console.log(userInvoices.length)
+
+    const newJson = []
+
+    for (let i = 0; i < userInvoices.length; i++) {
+        newJson.push(invoicesCopy.find(invoice => invoice.id === userInvoices[i]))
+    }
+
+    res.json(newJson)
+})
+
+/* Get a single invoice of a user */
+app.get('/users/:userId/invoices/:invoiceId', (req, res) => {
+    const userId = req.params.userId
+    const invoiceId = req.params.invoiceId
+    const user = usersCopy.find(user => user.id === userId)
+    const userInvoices = user.invoices
+    const invoiceToFind = userInvoices.find(invoice => invoice === invoiceId)
+    console.log(userInvoices.length)
+
+    res.json(invoicesCopy.find(invoice => invoice.id === invoiceToFind))
 })
 
 /* create new product (name, manufacturer, category, description, price - bonus image) */
@@ -71,32 +152,24 @@ app.post('/register', (req, res) => {
 /* Purchase products for a user 
 -> create invoice with information of all the 
 bought products + total sum */
-app.post('/create-invoice', (req, res) => {
+app.post('/invoices/create-invoice', (req, res) => {
     const body = req.body
+    //console.log(body.boughtItems)
 
     let newInvoice = {
         id: nanoid.nanoid(),
-        products: [
-        ]
-    }
-    for (let i = 0; i < body.length; i++) {
-        newInvoice.products.push(body[i])
+        boughtItems: body.boughtItems
     }
 
     invoicesCopy.push(newInvoice)
 
-    console.log(invoicesCopy)
+    const indexOfUser = usersCopy.findIndex(user => user.id === body.userId)
+    console.log(indexOfUser)
+
+    usersCopy[indexOfUser].invoices.push(newInvoice.id)
+
+    console.log(newInvoice)
     res.json(body)
-})
-
-
-/* get single product */
-app.get('/products/:id', (req, res) => {
-    const id = req.params.id
-    console.log(typeof id)
-    const item = productsCopy.filter(product => product.id === id)
-    console.log(item)
-    res.json(item)
 })
 
 /* modify product */
@@ -123,6 +196,23 @@ app.put('/products/:id', (req, res) => {
     productsCopy[index] = modifiedProduct
 
     res.status(200).end()
+})
+
+/* Get a single invoice of a user */
+app.delete('/users/:userId/invoices/:invoiceId', (req, res) => {
+    const userId = req.params.userId
+    const invoiceId = req.params.invoiceId
+    const user = usersCopy.find(user => user.id === userId)
+    const userInvoices = user.invoices
+
+    if (userInvoices.find(invoice => invoice === invoiceId)) {
+        const index = users.findIndex(user => user.id === userId)
+        usersCopy[index].invoices = usersCopy[index].invoices.filter(invoice => invoice !== invoiceId)
+        res.status(204).end()
+        return
+    }
+
+    res.status(400).end()
 })
 
 const PORT = 3001

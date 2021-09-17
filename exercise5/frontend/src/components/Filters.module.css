@@ -1,0 +1,49 @@
+.filters {
+    max-width: 100%;
+    padding: 0rem 0rem 2rem 0;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 8rem;
+    align-items: center;
+}
+
+.filters > div {
+    display: flex;
+    height: 100%;
+}
+
+.left {
+    flex: 1;
+    max-width: 40rem;
+    min-width: 11rem;
+    align-items: center;
+    position: relative;
+}
+
+.middle {
+    
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .right {
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    .viewToggle {
+        margin-right: 0rem;
+    }
+    .filters {
+        height: 10rem;
+    }
+}

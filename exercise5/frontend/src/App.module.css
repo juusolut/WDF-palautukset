@@ -1,0 +1,169 @@
+:root {
+  --shadow: 
+  0 0.7px 16.1px rgba(0, 0, 0, 0.015),
+  0 1.5px 21.7px rgba(0, 0, 0, 0.021),
+  0 2.5px 25.5px rgba(0, 0, 0, 0.024),
+  0 3.8px 29.4px rgba(0, 0, 0, 0.027),
+  0 6.1px 35.6px rgba(0, 0, 0, 0.03),
+  0 13px 55px rgba(0, 0, 0, 0.04)
+;
+
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: rgb(235, 235, 235);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 62.5%;
+}
+
+.canvas {
+  max-width: 130rem;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 1rem;
+}
+
+aside {
+  width: 25rem;
+  background-color: white;
+  padding: 1rem;
+  margin-right: 2rem;
+  outline: .1rem solid rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow);
+}
+
+aside h2 {
+  padding: 1rem 0rem;
+}
+
+.radioButtons {
+  display: grid;
+  grid-auto-rows: 4rem;
+  gap: 1rem;
+}
+
+.radioButtons input {
+  display: flex;
+  flex-direction: column;
+  height: 0;
+  width: 0;
+}
+
+.radioButtons input:checked + label {
+  background-color: black;
+  color: white;
+}
+
+.radioButtons label {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  padding-left: 1rem;
+  border-radius: .6rem;
+  font-size: 1.2rem;
+  transition: all 100ms linear;
+  border: .1rem solid rgba(0, 0, 0, 0.1);
+}
+
+.radioButtons label:hover {
+  cursor: pointer;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.productsContainer {
+  display: grid;
+  max-width: 100%;
+  animation: fadeIn .5s ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.noResults {
+  font-size: 3.6rem;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30rem;
+  flex-direction: column;
+}
+
+.loading {
+  height: 5rem;
+  width: 20rem;
+  position: relative;
+  display: flex;
+  background-color: none;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+
+@keyframes dotScale {
+  0% {
+    transform: scale(1);
+    background-color: rgb(235, 235, 235);
+  }
+  25% {
+    transform: scale(1.6);
+    background-color: rgb(66, 66, 66);
+  }
+  60% {
+    background-color: rgb(235, 235, 235);
+    transform: scale(1);
+  }
+}
+
+.dot {
+  height: 3rem;
+  width: 3rem;
+  background-color: rgb(235, 235, 235);
+  border-radius: 10rem;
+  animation: dotScale 1.8s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0ms;
+
+}
+
+.dot:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+.dot:nth-child(4) {
+  animation-delay: 450ms;
+}
+
+
+

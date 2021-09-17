@@ -1,0 +1,1 @@
+GET http://localhost:3001/users/aifo3920fj23f/invoices HTTP/1.1

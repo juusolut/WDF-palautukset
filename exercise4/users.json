@@ -1,10 +1,12 @@
 [
     {
+        "id": "aifo3920fj23f",
         "name": "Example Person",
         "streetAddress": "Examplestreet 1",
         "postcode": "00000",
         "city": "City",
         "password": "passwd",
-        "email": "exampleperson@mail.com"
+        "email": "exampleperson@mail.com",
+        "invoices": ["PDQK-V8M5G4DMGrwiw9kF"]
     }
 ]

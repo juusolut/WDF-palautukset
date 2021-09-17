@@ -1,0 +1,33 @@
+form {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    box-shadow: var(--shadow);
+    border-radius: .6rem;
+}
+
+.input {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    border: 0px solid darkgray;
+    border-radius: .6rem 0 0 .6rem;
+    font-size: 1.8rem;
+}
+
+.searchIcon {
+    color: darkgray;
+    position: absolute;
+    right: 2rem;
+}
+
+.submit {
+    height: 100%;
+    border: 0;
+    background-color: darkslateblue;
+    color: white;
+    width: 8rem;
+    border-radius: 0 .6rem .6rem 0;
+}
