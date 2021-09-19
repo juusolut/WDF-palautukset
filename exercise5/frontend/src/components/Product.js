@@ -12,14 +12,14 @@ const Prodcut = ({ product, isRow }) => {
 
     const inStock = product.stock > 0
     if (!inStock) {
-        console.log(product.stock)
+        /* console.log(product.stock) */
     }
 
     const maxLength = 45
 
     const trimmedName = product.name.length > maxLength ? product.name.substring(0, maxLength - 3) + '...' : product.name
 
-    console.log(trimmedName)
+    /* console.log(trimmedName) */
 
     const productInStyle = {}
     productInStyle.flexDirection =  isRow ? 'row' : 'column'

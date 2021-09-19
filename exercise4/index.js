@@ -26,34 +26,33 @@ app.use(requestLogger)
 
 /* get products */
 app.get('/products', (req, res) => {
-    console.log(req.query.name)
-    console.log(req.query.manufacturer)
-    console.log(req.query.category)
+    console.log('Search:' + req.query.search)
+    console.log('Category:' + req.query.category)
+    console.log('Manufacturer:' + req.query.manufacturer)
 
     let productsToShow = [...productsCopy]
 
     if (req.query.name) {
         productsToShow = productsToShow.filter(product => {
-            console.log('COMPARING', product.name.toLowerCase(), 'AND', req.query.name)
-            console.log(String(product.name.toLowerCase()).includes(String(req.query.name)))
+            /*             console.log('COMPARING', product.name.toLowerCase(), 'AND', req.query.name)
+                        console.log(String(product.name.toLowerCase()).includes(String(req.query.name))) */
             return String(product.name.toLowerCase()).includes(String(req.query.name))
         })
     }
 
     if (req.query.manufacturer) {
         productsToShow = productsToShow.filter(product => {
-            console.log('COMPARING', product.manufacturer.toLowerCase(), 'AND', req.query.manufacturer)
+            /*             console.log('COMPARING', product.manufacturer.toLowerCase(), 'AND', req.query.manufacturer) */
             return String(product.manufacturer.toLowerCase()) === (String(req.query.manufacturer))
         })
     }
 
     if (req.query.category) {
         productsToShow = productsToShow.filter(product => {
-            console.log('COMPARING', product.category.toLowerCase(), 'AND', req.query.category)
+            /*             console.log('COMPARING', product.category.toLowerCase(), 'AND', req.query.category) */
             return String(product.category.toLowerCase()) === (String(req.query.category))
         })
     }
-
 
     res.json(productsToShow)
 })

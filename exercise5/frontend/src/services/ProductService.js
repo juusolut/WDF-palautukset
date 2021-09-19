@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const products = [
+/* const products = [
   {
     id: 1,
     name: 'MSI B450 Tomahawk',
@@ -73,10 +73,18 @@ const products = [
     image: 'case.png',
     stock: 5
   },
-]
+] */
 
-const getProducts = () => {
-  const request = axios.get('http://localhost:3001/products')
+const getProducts = (search, category, manufacturer) => {
+  if (category === 'ALL CATEGORIES') {
+    category = ''
+  }
+  if (manufacturer === 'ALL MANUFACTURERS') {
+    manufacturer = ''
+  }
+  const getUrl = 'http://localhost:3001/products?search=' + search + '&category=' + category + '&manufacturer=' + manufacturer
+  console.log(getUrl)
+  const request = axios.get(getUrl)
   return request.then(response => response.data)
 }
 
