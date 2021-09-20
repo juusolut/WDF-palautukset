@@ -151,7 +151,7 @@ app.post('/register', (req, res) => {
 /* Purchase products for a user 
 -> create invoice with information of all the 
 bought products + total sum */
-app.post('/invoices/create-invoice', (req, res) => {
+app.post('/invoices', (req, res) => {
     const body = req.body
     //console.log(body.boughtItems)
 
@@ -176,25 +176,31 @@ app.put('/products/:id', (req, res) => {
     const id = req.params.id
     const body = req.body
 
-    const index = productsCopy.findIndex(product => product.id === id)
-    console.log(index)
+    if (productsCopy.find(product => product.id === id)) {
 
-    const modifiedProduct = {
-        id: productsCopy[index].id,
-        name: body.name || productsCopy[index].name,
-        manufacturer: body.manufacturer || productsCopy[index].manufacturer,
-        category: body.category || productsCopy[index].category,
-        description: body.description || productsCopy[index].description,
-        price: body.price || productsCopy[index].price,
-        image: body.image || productsCopy[index].image,
-        rating: productsCopy[index].rating,
-        reviews: productsCopy[index].reviews,
-        stock: productsCopy[index].stock
+        const index = productsCopy.findIndex(product => product.id === id)
+        console.log(index)
+
+        const modifiedProduct = {
+            id: productsCopy[index].id,
+            name: body.name || productsCopy[index].name,
+            manufacturer: body.manufacturer || productsCopy[index].manufacturer,
+            category: body.category || productsCopy[index].category,
+            description: body.description || productsCopy[index].description,
+            price: body.price || productsCopy[index].price,
+            image: body.image || productsCopy[index].image,
+            rating: productsCopy[index].rating,
+            reviews: productsCopy[index].reviews,
+            stock: productsCopy[index].stock
+        }
+
+        productsCopy[index] = modifiedProduct
+
+        res.status(200).end()
+    } else {
+        res.status(204).end()
     }
 
-    productsCopy[index] = modifiedProduct
-
-    res.status(200).end()
 })
 
 /* Delete a product */
@@ -220,10 +226,9 @@ app.delete('/users/:userId/invoices/:invoiceId', (req, res) => {
         const index = users.findIndex(user => user.id === userId)
         usersCopy[index].invoices = usersCopy[index].invoices.filter(invoice => invoice !== invoiceId)
         res.status(204).end()
-        return
+    } else {
+        res.status(400).end()
     }
-
-    res.status(400).end()
 })
 
 const PORT = 3001

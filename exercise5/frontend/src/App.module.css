@@ -70,6 +70,7 @@ aside h2 {
   height: 0;
   width: 0;
   height: 0;
+  opacity: 0;
 }
 
 .radioButtons input:checked + label {
@@ -112,7 +113,7 @@ main {
 .productsContainer {
   display: grid;
   max-width: 100%;
-  animation: fadeIn .5s ease-in;
+  animation: fadeIn 200ms linear;
 }
 
 @keyframes fadeIn {

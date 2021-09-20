@@ -29,9 +29,10 @@ const AdminProductList = ({ products, handleProductDeletion, handleAddProduct })
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr className={styles.addNewRow}>
                     <td>
                         <input
+                            placeholder='name'
                             value={newProduct.name}
                             onChange={(event) => {
                                 const copy = { ...newProduct }
@@ -43,6 +44,7 @@ const AdminProductList = ({ products, handleProductDeletion, handleAddProduct })
                     </td>
                     <td>
                         <input
+                            placeholder='manufacturer'
                             value={newProduct.manufacturer}
                             onChange={(event) => {
                                 const copy = { ...newProduct }
@@ -54,6 +56,7 @@ const AdminProductList = ({ products, handleProductDeletion, handleAddProduct })
                     </td>
                     <td>
                         <input
+                            placeholder='category'
                             value={newProduct.category}
                             onChange={(event) => {
                                 const copy = { ...newProduct }
@@ -65,6 +68,7 @@ const AdminProductList = ({ products, handleProductDeletion, handleAddProduct })
                     </td>
                     <td>
                         <input
+                        placeholder='description'
                             value={newProduct.description}
                             onChange={(event) => {
                                 const copy = { ...newProduct }
@@ -76,6 +80,7 @@ const AdminProductList = ({ products, handleProductDeletion, handleAddProduct })
                     </td>
                     <td>
                         <input
+                        placeholder='price'
                             value={newProduct.price}
                             onChange={(event) => {
                                 const copy = { ...newProduct }
@@ -87,6 +92,7 @@ const AdminProductList = ({ products, handleProductDeletion, handleAddProduct })
                     </td>
                     <td>
                         <input
+                        placeholder='image'
                             value={newProduct.image}
                             onChange={(event) => {
                                 const copy = { ...newProduct }
@@ -98,6 +104,7 @@ const AdminProductList = ({ products, handleProductDeletion, handleAddProduct })
                     </td>
                     <td>
                         <input
+                        placeholder='stock'
                             value={newProduct.stock}
                             onChange={(event) => {
                                 const copy = { ...newProduct }
@@ -109,6 +116,7 @@ const AdminProductList = ({ products, handleProductDeletion, handleAddProduct })
                     </td>
                     <td>
                         <button
+                            className={styles.button}
                             style={{ backgroundColor: 'seagreen' }}
                             onClick={() => handleAddProduct(newProduct)}
                         >ADD
@@ -126,7 +134,10 @@ const AdminProductList = ({ products, handleProductDeletion, handleAddProduct })
                             <td>{product.image}</td>
                             <td>{product.stock}</td>
                             <td>
-                                <button onClick={() => handleProductDeletion(product.id)}>DELETE</button>
+                                <button
+                                    className={styles.button}
+                                    onClick={() => handleProductDeletion(product.id)}>DELETE
+                                </button>
                             </td>
                         </tr>
                     )

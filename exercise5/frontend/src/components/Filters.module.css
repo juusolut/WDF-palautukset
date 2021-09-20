@@ -42,6 +42,8 @@
     border-radius: .6rem;
     text-transform: uppercase;
     font-size: 1.2rem;
+    border: none;
+    padding: 0rem 1rem;
 }
 
 

@@ -1,5 +1,5 @@
 import styles from './App.module.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Product from './components/Product'
 import Header from './components/Header'
 import ProductService from './services/ProductService'
@@ -126,16 +126,16 @@ function App() {
         setAdminMode(!adminMode)
     }
 
-const handleAddProduct = (newProduct) => {
-    console.log(newProduct)
-    ProductService
-        .addProduct(newProduct)
-        .then(res => {
-            let productsCopy = [...products]
-            productsCopy.unshift(res)
-            setProducts(productsCopy)
-        })
-}
+    const handleAddProduct = (newProduct) => {
+        console.log(newProduct)
+        ProductService
+            .addProduct(newProduct)
+            .then(res => {
+                let productsCopy = [...products]
+                productsCopy.unshift(res)
+                setProducts(productsCopy)
+            })
+    }
 
     const productsToShow =
         search.length === 0 ? products

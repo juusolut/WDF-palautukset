@@ -3,6 +3,7 @@ content-type: application/json
 
 {
     "name": "NEW TITLE",
-    "price": 209
+    "price": 290,
+    "category": "pc-parts"
 }
 

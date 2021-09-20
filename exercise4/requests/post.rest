@@ -6,7 +6,8 @@ content-type: application/json
     "manufacturer": "Manu Company",
     "category": "Product category",
     "description": "Product description",
-    "price": "0.00",
-    "image": ""
+    "price": 0.00,
+    "image": "",
+    "stock": 1
 }
 
