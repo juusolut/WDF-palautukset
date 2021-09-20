@@ -88,9 +88,23 @@ const getProducts = (search, category, manufacturer) => {
   return request.then(response => response.data)
 }
 
+const deleteProduct = (id) => {
+  const url = 'http://localhost:3001/products/' + String(id)
+  const request = axios.delete(url)
+  return request.then(response => response.data)
+}
+
+const addProduct = (product) => {
+  const url = 'http://localhost:3001/products'
+  const request = axios.post(url, product)
+  return request.then(response => response.data)
+}
+
 
 const exportedObjects = {
-  getProducts
+  getProducts,
+  deleteProduct,
+  addProduct
 }
 
 export default exportedObjects

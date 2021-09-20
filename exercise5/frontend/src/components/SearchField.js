@@ -5,16 +5,17 @@ const SearchField = ({ search, handleSearchChange }) => {
         <>
             <form styles={styles.searchbox}>
                 <input className={styles.input}
+                    type='search'
                     value={search}
                     onChange={handleSearchChange}
                     placeholder='Search'
                 >
                 </input>
-                <input 
+{/*                 <input 
                     className={styles.submit}
                     type="submit" 
                     value="Search">
-                </input>
+                </input> */}
             </form>
 
         </>

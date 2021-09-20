@@ -1,0 +1,38 @@
+.table {
+    background-color: none;
+    font-size: 1.2rem;
+    text-align: left;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.table th {
+    background-color: darkgrey;
+}
+
+.table th, .table td {
+    height: 4rem;
+    padding: 1rem;
+}
+
+.table tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.table td {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: maroon;
+    width: 100%;
+    padding: .5rem 1rem;
+    border: 0;
+    border-radius: .3rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+input {
+    width: 100%;
+}

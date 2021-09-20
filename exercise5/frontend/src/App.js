@@ -4,10 +4,12 @@ import Product from './components/Product'
 import Header from './components/Header'
 import ProductService from './services/ProductService'
 import Filters from './components/Filters';
+import SearchField from './components/SearchField'
 import CameraAlt from '@material-ui/icons/CameraAlt';
 import HeadsetMic from '@material-ui/icons/HeadsetMic';
 import LaptopChromebookIcon from '@material-ui/icons/LaptopChromebook';
 import TabletAndroidIcon from '@material-ui/icons/TabletAndroid';
+import AdminProductList from './components/AdminProductList';
 
 function App() {
     const [products, setProducts] = useState([])
@@ -19,6 +21,7 @@ function App() {
     const [isLoading, setisLoading] = useState(true)
     const [allCategories, setAllCategories] = useState([])
     const [allManufacturers, setAllManufacturers] = useState([])
+    const [adminMode, setAdminMode] = useState(false)
 
     useEffect(() => {
         setisLoading(true)
@@ -108,6 +111,32 @@ function App() {
         console.log(event.target.value)
     }
 
+    const handleProductDeletion = (id) => {
+        ProductService
+            .deleteProduct(id)
+            .then(res => {
+                console.log('deletion was successful')
+                let productsCopy = [...products]
+                productsCopy = productsCopy.filter(product => product.id !== id)
+                setProducts(productsCopy)
+            })
+    }
+
+    const handleAdminToggle = () => {
+        setAdminMode(!adminMode)
+    }
+
+const handleAddProduct = (newProduct) => {
+    console.log(newProduct)
+    ProductService
+        .addProduct(newProduct)
+        .then(res => {
+            let productsCopy = [...products]
+            productsCopy.unshift(res)
+            setProducts(productsCopy)
+        })
+}
+
     const productsToShow =
         search.length === 0 ? products
             : products.filter(product =>
@@ -135,109 +164,116 @@ function App() {
             <Header></Header>
 
             <div className={styles.canvas}>
+                <Filters
+                    filter={sorting}
+                    handleDropdownChange={handleDropdownChange}
+                    handleSearchChange={handleSearchChange}
+                    search={search}
+                    handleLayoutChange={handleLayoutChange}
+                    listLayout={listLayout}
+                    handleAdminToggle={handleAdminToggle}
+                ></Filters>
 
-                <aside>
-                    <h2>Categories</h2>
-
-                    <div className={styles.radioButtons}>
-
-                        {categoriesToShow.map(cat => {
-                            return (
-                                <div key={cat}>
-                                    <input
-                                        type='radio'
-                                        name='categories'
-                                        id={cat}
-                                        value={cat}
-                                        onChange={handleCategoryChange}
-                                        checked={category === cat}
-                                    ></input>
-                                    <label htmlFor={cat}>{cat}</label>
-                                </div>
-                            )
-                        })}
-
-                    </div>
-
-                    <h2>Manufacturers</h2>
-
-                    <div className={styles.radioButtons}>
+                <div className={styles.asideAndMain}>
+                    <aside>
+                        <h2>Search products</h2>
+                        <SearchField
+                            search={search}
+                            handleSearchChange={handleSearchChange}
+                        ></SearchField>
+                        <h2>Categories</h2>
 
                         <div className={styles.radioButtons}>
 
-                            {manufacturersToShow.map(manu => {
+                            {categoriesToShow.map(cat => {
                                 return (
-                                    <div key={manu}>
+                                    <div key={cat}>
                                         <input
                                             type='radio'
-                                            name='manufacturers'
-                                            id={manu}
-                                            value={manu}
-                                            onChange={handleManufacturerChange}
-                                            checked={manufacturer === manu}
+                                            name='categories'
+                                            id={cat}
+                                            value={cat}
+                                            onChange={handleCategoryChange}
+                                            checked={category === cat}
                                         ></input>
-                                        <label htmlFor={manu}>{manu}</label>
+                                        <label htmlFor={cat}>{cat}</label>
                                     </div>
                                 )
                             })}
 
                         </div>
 
-                    </div>
+                        <h2>Manufacturers</h2>
 
-                </aside>
+                        <div className={styles.radioButtons}>
 
-                <main>
-                    <Filters
-                        filter={sorting}
-                        handleDropdownChange={handleDropdownChange}
-                        handleSearchChange={handleSearchChange}
-                        search={search}
-                        handleLayoutChange={handleLayoutChange}
-                        listLayout={listLayout}
-                    ></Filters>
+                            <div className={styles.radioButtons}>
 
+                                {manufacturersToShow.map(manu => {
+                                    return (
+                                        <div key={manu}>
+                                            <input
+                                                type='radio'
+                                                name='manufacturers'
+                                                id={manu}
+                                                value={manu}
+                                                onChange={handleManufacturerChange}
+                                                checked={manufacturer === manu}
+                                            ></input>
+                                            <label htmlFor={manu}>{manu}</label>
+                                        </div>
+                                    )
+                                })}
 
-                    {
-                        isLoading === true ?
-                            <div className={styles.noResults}>
+                            </div>
 
-                                <div className={styles.loading}>
-                                    <div className={styles.dot}>
-                                        <CameraAlt fontSize='medium'></CameraAlt>
-                                    </div>
-                                    <div className={styles.dot}>
-                                        <HeadsetMic fontSize='medium'></HeadsetMic>
-                                    </div>
-                                    <div className={styles.dot}>
-                                        <LaptopChromebookIcon fontSize='medium'></LaptopChromebookIcon>
-                                    </div>
-                                    <div className={styles.dot}>
-                                        <TabletAndroidIcon fontSize='medium'></TabletAndroidIcon>
+                        </div>
+
+                    </aside>
+
+                    <main>
+
+                        {
+                            isLoading === true ?
+                                <div className={styles.noResults}>
+
+                                    <div className={styles.loading}>
+                                        <div className={styles.dot}>
+                                            <CameraAlt fontSize='medium'></CameraAlt>
+                                        </div>
+                                        <div className={styles.dot}>
+                                            <HeadsetMic fontSize='medium'></HeadsetMic>
+                                        </div>
+                                        <div className={styles.dot}>
+                                            <LaptopChromebookIcon fontSize='medium'></LaptopChromebookIcon>
+                                        </div>
+                                        <div className={styles.dot}>
+                                            <TabletAndroidIcon fontSize='medium'></TabletAndroidIcon>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            : productsToShow.length === 0
-                                ? <div className={styles.noResults}>No results 😕</div>
-                                : 
-                                    <div className={styles.productsContainer} style={style}>
+                                : productsToShow.length === 0
+                                    ? <div className={styles.noResults}>No results 😕</div>
+                                    : adminMode === true
+                                        ? <AdminProductList
+                                            products={productsToShow}
+                                            handleProductDeletion={handleProductDeletion}
+                                            handleAddProduct={handleAddProduct}
+                                        ></AdminProductList>
+                                        :
+                                        <div className={styles.productsContainer} style={style}>
+                                            {productsToShow.map((item) => {
 
-                                        {productsToShow.map((item) => {
+                                                //console.log('here ', item)
+                                                return (
+                                                    <Product key={item.id} product={item} isRow={listLayout}></Product>
+                                                )
+                                            })}
+                                        </div>
+                        }
 
-                                            //console.log('here ', item)
-                                            return (
-                                                <Product key={item.id} product={item} isRow={listLayout}></Product>
-                                            )
-                                        })
-                                        }
-
-                                    </div>
-
-                    
-
-                    }
-
-                </main>
+                    </main>
+                </div>
 
 
 

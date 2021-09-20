@@ -105,7 +105,7 @@ app.get('/users/:userId/invoices/:invoiceId', (req, res) => {
 })
 
 /* create new product (name, manufacturer, category, description, price - bonus image) */
-app.post('/products/create-new', (req, res) => {
+app.post('/products', (req, res) => {
     const body = req.body
     console.log(body)
 
@@ -117,14 +117,14 @@ app.post('/products/create-new', (req, res) => {
         description: body.description,
         price: body.price,
         image: body.image,
-        rating: 3.8,
-        reviews: 24,
-        stock: 1100
+        rating: null,
+        reviews: 0,
+        stock: body.stock
     }
     console.log(JSON.stringify(newProduct))
 
     productsCopy.push(newProduct)
-    res.json(body)
+    res.json(newProduct)
 })
 
 /* Create user (basic information name, address etc.) */
@@ -173,7 +173,7 @@ app.post('/invoices/create-invoice', (req, res) => {
 
 /* modify product */
 app.put('/products/:id', (req, res) => {
-    const id = Number(req.params.id)
+    const id = req.params.id
     const body = req.body
 
     const index = productsCopy.findIndex(product => product.id === id)
@@ -195,6 +195,18 @@ app.put('/products/:id', (req, res) => {
     productsCopy[index] = modifiedProduct
 
     res.status(200).end()
+})
+
+/* Delete a product */
+
+app.delete('/products/:id', (req, res) => {
+    const id = req.params.id
+    if (productsCopy.find(product => product.id === id)) {
+        productsCopy = productsCopy.filter(product => product.id !== id)
+        res.status(204).end()
+    } else {
+        res.status(400).end()
+    }
 })
 
 /* Get a single invoice of a user */
