@@ -3,11 +3,16 @@
     font-size: 1.2rem;
     text-align: left;
     border-collapse: collapse;
-    overflow: hidden;
 }
 
 .table th {
     background-color: darkgrey;
+}
+
+.table thead {
+    border-left: .1rem solid black;
+    border-right: .1rem solid black;
+    border-top: .1rem solid black;
 }
 
 .table th, .table td {
@@ -19,7 +24,7 @@
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.table td {
+.table td:not(:last-child) {
     border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -31,6 +36,16 @@
     border-radius: .3rem;
     color: white;
     font-size: 1.2rem;
+}
+
+.addNewRow td {
+    background-color: rgba(46, 139, 86, 0.4);
+}
+
+.addNewRow {
+    border-left: .1rem solid black;
+    border-right: .1rem solid black;
+    border-bottom: .1rem solid black;
 }
 
 .addNewRow input {
