@@ -4,7 +4,6 @@ import Product from './components/Product'
 import Header from './components/Header'
 import ProductService from './services/ProductService'
 import Filters from './components/Filters';
-import { useSpring, animated, useTransition } from 'react-spring';
 import EventSeat from '@material-ui/icons/EventSeat';
 import HeadsetMic from '@material-ui/icons/HeadsetMic';
 import LaptopChromebookIcon from '@material-ui/icons/LaptopChromebook';
@@ -12,7 +11,7 @@ import TabletAndroidIcon from '@material-ui/icons/TabletAndroid';
 
 function App() {
   const [products, setProducts] = useState([])
-  const [filter, setFilter] = useState('descending')
+  const [filter, setFilter] = useState('ascending')
   const [search, setSearch] = useState('')
   const [listLayout, setlistLayout] = useState(false)
 
@@ -34,7 +33,7 @@ function App() {
     setFilter(event.target.value)
     //console.log(event.target.value)
 
-    if (event.target.value === 'descending') {
+    if (event.target.value === 'ascending') {
       let obj = JSON.parse(JSON.stringify(products));
       obj.sort((a, b) => a.price - b.price)
       //console.log(products)
@@ -42,7 +41,7 @@ function App() {
       setProducts(obj)
     }
 
-    if (event.target.value === 'ascending') {
+    if (event.target.value === 'descending') {
       let obj = JSON.parse(JSON.stringify(products));
       obj.sort((a, b) => b.price - a.price)
       //console.log(products)

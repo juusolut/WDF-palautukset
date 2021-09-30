@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import styles from './Product.module.css';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
@@ -22,7 +21,7 @@ const Prodcut = ({ product, isRow }) => {
     console.log(trimmedName)
 
     const productInStyle = {}
-    productInStyle.flexDirection =  isRow ? 'row' : 'column'
+    productInStyle.flexDirection = isRow ? 'row' : 'column'
 
     return (
         <div className={styles.product} style={productInStyle} >
@@ -42,8 +41,8 @@ const Prodcut = ({ product, isRow }) => {
                             <b>{(Math.round(product.price * 100) / 100).toFixed(2)} €</b>
                         </span>
                     </div>
-                    <button className={styles.buy} style={inStock ? {} : {backgroundColor: 'grey'}}>
-                        <span>{inStock ? 'Add to cart' : 'No stock' }</span>
+                    <button className={styles.buy} style={inStock ? {} : { backgroundColor: 'grey' }}>
+                        <span>{inStock ? 'Add to cart' : 'No stock'}</span>
                         <ShoppingCartIcon></ShoppingCartIcon>
                     </button>
                 </div>

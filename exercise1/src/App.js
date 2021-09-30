@@ -72,7 +72,7 @@ const Article = () => {
     <main>
       <article>
         <h1>Ala tai laajempi aihealue</h1>
-        <img src='https://picsum.photos/600/250'></img>
+        <img src='https://picsum.photos/600/250' alt='example'></img>
         <h2>
           <span className='topic'>Aihe |</span> Otsikko
         </h2>
