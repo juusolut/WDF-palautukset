@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import styles from './Product.module.css';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 

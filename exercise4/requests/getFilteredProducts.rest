@@ -1,1 +1,1 @@
-GET http://localhost:3001/products?name=p&manufacturer=intel&category=pc-parts HTTP/1.1
+GET http://localhost:3001/products?name=&manufacturer=intel&category=pc-parts HTTP/1.1

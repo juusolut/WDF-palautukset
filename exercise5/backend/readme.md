@@ -1,0 +1,1 @@
+Backendi löytyy exercise4-hakemistosta. Backendi käynnistetään komennolla "npm run dev".

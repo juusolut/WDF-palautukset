@@ -1,4 +1,4 @@
-PUT http://localhost:3001/products/1 HTTP/1.1
+PUT http://localhost:3001/products/Y1i6G_5hdZZ9eSikqtcAn HTTP/1.1
 content-type: application/json
 
 {

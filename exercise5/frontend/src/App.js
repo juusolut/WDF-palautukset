@@ -1,5 +1,5 @@
 import styles from './App.module.css';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Product from './components/Product'
 import Header from './components/Header'
 import ProductService from './services/ProductService'
@@ -10,6 +10,7 @@ import HeadsetMic from '@material-ui/icons/HeadsetMic';
 import LaptopChromebookIcon from '@material-ui/icons/LaptopChromebook';
 import TabletAndroidIcon from '@material-ui/icons/TabletAndroid';
 import AdminProductList from './components/AdminProductList';
+import Category from './components/Category';
 
 function App() {
     const [products, setProducts] = useState([])
@@ -146,7 +147,7 @@ function App() {
     const manufacturersToShow = [...allManufacturers]
 
     console.log('isLoading?', isLoading)
-    const style = listLayout ?
+    const productsStyle = listLayout ?
         {
             gridTemplateColumns: 'repeat(auto-fill, 100%)',
             gridAutoRows: 'auto'
@@ -156,14 +157,12 @@ function App() {
             gridAutoRows: 'auto'
         }
 
-
-    console.log(style)
-
     return (
         <>
             <Header></Header>
 
             <div className={styles.canvas}>
+
                 <Filters
                     filter={sorting}
                     handleDropdownChange={handleDropdownChange}
@@ -175,62 +174,43 @@ function App() {
                 ></Filters>
 
                 <div className={styles.asideAndMain}>
+
                     <aside>
                         <h2>Search products</h2>
                         <SearchField
                             search={search}
                             handleSearchChange={handleSearchChange}
                         ></SearchField>
+
                         <h2>Categories</h2>
-
                         <div className={styles.radioButtons}>
-
                             {categoriesToShow.map(cat => {
                                 return (
-                                    <div key={cat}>
-                                        <input
-                                            type='radio'
-                                            name='categories'
-                                            id={cat}
-                                            value={cat}
-                                            onChange={handleCategoryChange}
-                                            checked={category === cat}
-                                        ></input>
-                                        <label htmlFor={cat}>{cat}</label>
-                                    </div>
+                                    <Category key={cat}
+                                        category={cat}
+                                        handleCategoryChange={handleCategoryChange}
+                                        currentCategory={category}>
+                                        name={'categories'}
+                                    </Category>
                                 )
                             })}
-
                         </div>
 
                         <h2>Manufacturers</h2>
-
                         <div className={styles.radioButtons}>
-
-                            <div className={styles.radioButtons}>
-
-                                {manufacturersToShow.map(manu => {
-                                    return (
-                                        <div key={manu}>
-                                            <input
-                                                type='radio'
-                                                name='manufacturers'
-                                                id={manu}
-                                                value={manu}
-                                                onChange={handleManufacturerChange}
-                                                checked={manufacturer === manu}
-                                            ></input>
-                                            <label htmlFor={manu}>{manu}</label>
-                                        </div>
-                                    )
-                                })}
-
-                            </div>
-
+                            {manufacturersToShow.map(manu => {
+                                return (
+                                    <Category key={manu}
+                                        category={manu}
+                                        handleCategoryChange={handleManufacturerChange}
+                                        currentCategory={manufacturer}>
+                                        name={'manufacturers'}
+                                    </Category>
+                                )
+                            })}
                         </div>
 
                     </aside>
-
                     <main>
 
                         {
@@ -261,7 +241,7 @@ function App() {
                                             handleAddProduct={handleAddProduct}
                                         ></AdminProductList>
                                         :
-                                        <div className={styles.productsContainer} style={style}>
+                                        <div className={styles.productsContainer} style={productsStyle}>
                                             {productsToShow.map((item) => {
 
                                                 //console.log('here ', item)

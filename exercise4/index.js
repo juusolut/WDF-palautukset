@@ -133,13 +133,14 @@ app.post('/register', (req, res) => {
     console.log(body)
 
     const newUser = {
-        id: nanoid.nanoid,
+        id: nanoid.nanoid(),
         name: body.name,
         streetAddress: body.streetAddress,
         postcode: body.postcode,
         city: body.city,
         password: body.password,
-        email: body.email
+        email: body.email,
+        invoices: []
     }
     console.log(JSON.stringify(newUser))
 
@@ -215,7 +216,7 @@ app.delete('/products/:id', (req, res) => {
     }
 })
 
-/* Get a single invoice of a user */
+/* Delete a single invoice of a user */
 app.delete('/users/:userId/invoices/:invoiceId', (req, res) => {
     const userId = req.params.userId
     const invoiceId = req.params.invoiceId
@@ -225,6 +226,9 @@ app.delete('/users/:userId/invoices/:invoiceId', (req, res) => {
     if (userInvoices.find(invoice => invoice === invoiceId)) {
         const index = users.findIndex(user => user.id === userId)
         usersCopy[index].invoices = usersCopy[index].invoices.filter(invoice => invoice !== invoiceId)
+
+        invoicesCopy = invoicesCopy.filter(invoice => invoice.id !== invoiceId)
+
         res.status(204).end()
     } else {
         res.status(400).end()

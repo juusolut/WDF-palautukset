@@ -9,7 +9,7 @@ const SortDropdown = ({ filter, handleDropdownChange }) => {
     ]
 
     return (
-        <select value={filter} onChange={handleDropdownChange}>
+        <select className={styles.selections} value={filter} onChange={handleDropdownChange}>
             {options.map(option =>
                 <option key={option.value} value={option.value}>
                     {option.label}
